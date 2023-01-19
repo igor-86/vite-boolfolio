@@ -9,7 +9,7 @@ export default {
 </script>
 
 <template>
-  <h1>AppVue</h1>
+  <h1 class="text-center">AppVue</h1>
 </template>
 
 <style lang="scss">
