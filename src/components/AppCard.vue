@@ -13,7 +13,7 @@ export default {
     computed: {
         articlePreview() {
             if (this.project.article && this.project.article.length > this.contentMaxLength) {
-                return this.project.content.substr(0, this.contentMaxLength) + '...';
+                return this.project.article.substr(0, this.contentMaxLength) + '...';
             }
             return this.project.article;
         }
@@ -30,9 +30,10 @@ export default {
 </script>
 
 <template>
-    <div class="card mb-3 p-3 height">
+    <div class="card mb-3  height">
         <div class="col-12">
-            <img v-if="project.cover_image" class="w-100" :src="`${baseUrl}/storage/${project.cover_image}`" alt="">
+            <img v-if="project.cover_image" class="w-100 h-image" :src="`${baseUrl}/storage/${project.cover_image}`"
+                alt="">
             <div class="alternative-img" v-else>
                 Nessuna immagine
             </div>
@@ -54,11 +55,17 @@ export default {
 
 <style lang="scss" scoped>
 .height {
-    height: 400px;
+
+    padding: 1rem;
+
+    .h-image {
+        height: 280px;
+        object-fit: cover;
+    }
 
     .alternative-img {
         width: 100%;
-        padding: 4rem 0;
+        height: 280px;
         background-color: #111111;
         color: white;
     }
