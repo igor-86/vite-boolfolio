@@ -42,7 +42,7 @@ export default {
         </div>
         <div class="col-12">
             <h5 class="card-title">{{ project.title }}</h5>
-            <p class="card-text">{{ project.article }}</p>
+            <p class="card-text">{{ articlePreview }}</p>
             <div class="tech">
                 <a href="#" class="btn btn-primary me-4">View</a>
                 <span class="me-3" v-for="tech in project.technologies" :key="tech.id">#{{ tech.name }}</span>
