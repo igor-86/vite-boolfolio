@@ -11,7 +11,7 @@ export default {
         project: Object,
     },
     computed: {
-        contentPreview() {
+        articlePreview() {
             if (this.project.article && this.project.article.length > this.contentMaxLength) {
                 return this.project.content.substr(0, this.contentMaxLength) + '...';
             }
@@ -30,22 +30,22 @@ export default {
 </script>
 
 <template>
-    <div class="card">
-        <div class="col-4">
+    <div class="card mb-3 p-3 height">
+        <div class="col-12">
             <img v-if="project.cover_image" class="w-100" :src="`${baseUrl}/storage/${project.cover_image}`" alt="">
-            <div v-else>
+            <div class="alternative-img" v-else>
                 Nessuna immagine
             </div>
         </div>
-        <div class="type">
+        <div class="type bg-warning">
             {{ project.type ? project.type.name : 'Nessuna categoria' }}
         </div>
-        <div class="card-body">
+        <div class="col-12">
             <h5 class="card-title">{{ project.title }}</h5>
             <p class="card-text">{{ project.article }}</p>
             <div class="tech">
                 <a href="#" class="btn btn-primary me-4">View</a>
-                <span v-for="tech in project.technologies" :key="tech.id">#{{ tech.name }}</span>
+                <span class="me-3" v-for="tech in project.technologies" :key="tech.id">#{{ tech.name }}</span>
             </div>
 
         </div>
@@ -53,14 +53,25 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-.type {
-    position: absolute;
-    padding: .2rem .6rem;
-    background-color: #e2c000;
-    color: black;
-    text-transform: uppercase;
-    border-radius: 0.3rem;
-    right: 2px;
-    top: 2px;
+.height {
+    height: 400px;
+
+    .alternative-img {
+        width: 100%;
+        padding: 4rem 0;
+        background-color: #111111;
+        color: white;
+    }
+
+    .type {
+        position: absolute;
+        padding: .2rem .6rem;
+
+        color: black;
+        text-transform: uppercase;
+        border-radius: 0.3rem;
+        right: 2px;
+        top: 2px;
+    }
 }
 </style>

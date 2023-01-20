@@ -3,11 +3,13 @@ import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
 
 
+
 export default {
   name: 'AppVue',
   components: {
     AppHeader,
-    AppMain
+    AppMain,
+
   }
 }
 </script>
@@ -16,6 +18,7 @@ export default {
   <AppHeader />
   <main>
     <AppMain />
+
   </main>
 </template>
 

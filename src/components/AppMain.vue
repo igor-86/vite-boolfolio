@@ -27,16 +27,13 @@ export default {
 
 <template>
     <div class="container">
-        <h3 class="text-center">Tutti i miei progetti</h3>
-        <div class="row justify-content-center">
-            <div class="col-11 col-md-10 col-lg-8">
-                <AppCard v-for="project in projects" :key="project.id" :project="project" />
+        <h3 class="text-center my-4">Tutti i miei progetti</h3>
+        <div class="row">
+            <div class="col-10 col-md-6 col-lg-4" v-for="project in projects" :key="project.id">
+                <AppCard :project="project" />
             </div>
         </div>
     </div>
-
-
-
 </template>
 
 <style lang="scss">
