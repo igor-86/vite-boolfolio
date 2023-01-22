@@ -1,10 +1,12 @@
 <script>
+import { store } from '../store';
 export default {
     name: 'PostCard',
     data() {
         return {
+            store,
             contentMaxLength: 200,
-            baseUrl: "http://127.0.0.1:8000",
+
         }
     },
     props: {
@@ -32,8 +34,8 @@ export default {
 <template>
     <div class="card mb-3  height">
         <div class="col-12">
-            <img v-if="project.cover_image" class="w-100 h-image" :src="`${baseUrl}/storage/${project.cover_image}`"
-                alt="">
+            <img v-if="project.cover_image" class="w-100 h-image"
+                :src="`${this.store.apiUrlBase}/storage/${project.cover_image}`" alt="">
             <div class="alternative-img" v-else>
                 Nessuna immagine
             </div>
