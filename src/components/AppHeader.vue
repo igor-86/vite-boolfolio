@@ -24,7 +24,7 @@ export default {
 </script>
 
 <template>
-    <header>
+    <header class="pos-fix">
         <nav class="navbar navbar-expand-lg bg-warning">
             <div class="container-fluid">
                 <a class="navbar-brand text-primary" href="#">BoolFolio</a>
@@ -52,5 +52,13 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@use "../styles/general.scss" as *;
 
+.pos-fix {
+    width: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
 </style>
