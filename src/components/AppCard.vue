@@ -47,7 +47,8 @@ export default {
             <h5 class="card-title">{{ project.title }}</h5>
             <p class="card-text">{{ articlePreview }}</p>
             <div class="tech">
-                <a href="#" class="btn btn-primary me-4">View</a>
+                <router-link :to="{ name: 'single-project', params: { slug: project.slug } }"
+                    class="btn btn-primary me-4">View </router-link>
                 <span class="me-3" v-for="tech in project.technologies" :key="tech.id">#{{ tech.name }}</span>
             </div>
 
