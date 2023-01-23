@@ -6,7 +6,7 @@ export default {
     data() {
         return {
             store,
-            project: {},
+            project: {}
         }
     },
     created() {
@@ -14,7 +14,7 @@ export default {
         axios.get(`${this.store.apiUrlBase}/api/projects/${slug}`).then(resp => {
 
             if (resp.data.success) {
-                this.project = resp.data.project
+                this.project = resp.data.results;
             } else {
                 this.$router.push({ name: "not-found" });
             }
@@ -32,14 +32,25 @@ export default {
     <div class="container">
         <h1 class="mt-3 text-center">{{ project.title }}</h1>
         <h5 class="text-center mt-2 text-uppercase text-primary">{{ category }}</h5>
-        <img v-if="project.cover_image" :src="`${store.apiUrlBase}/storage/${project.cover_image}`" alt="">
-        <div v-else class="text-center mt-4">Nessuna immagine</div>
-
+        <div class="image-project">
+            <img v-if="project.cover_image" :src="`${store.apiUrlBase}/storage/${project.cover_image}`" alt="">
+            <div v-else class="text-center mt-4">Nessuna immagine</div>
+        </div>
         <p>{{ project.article }}</p>
     </div>
 
 </template>
 
 <style lang="scss">
+.image-project {
+    width: 50%;
+    height: 300px;
+    margin-bottom: 1.5rem;
 
+    img {
+        max-width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
 </style>
